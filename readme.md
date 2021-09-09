@@ -1,8 +1,9 @@
 # (a) Novel Reflection
 
 An installation of automated reflectors. Light is reflected from source to target. The installation can automatically track the sun, act as a heliostat, or be sent target coordinates via MQTT. 
-- the First version will reflect light to single target.
-- the Second version will reflect light to multiple targets
+- First version will reflect light to a single target.
+- Second version will reflect light to multiple targets.
+- Third version will develop devices with sub-arrays of reflectors.
 
 Multiple targets examples:
 - outside light up several (*normally*) shaded seating areas.
