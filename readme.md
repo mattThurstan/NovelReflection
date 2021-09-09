@@ -1,4 +1,22 @@
-# The Open Sun Harvesting Project
+# (a) Novel Reflection
+
+An installation of automated reflectors. Light is reflected from source to target. The installation can automatically track the sun, act as a heliostat, or be sent target coordinates via MQTT. 
+- the First version will reflect light to single target.
+- the Second version will reflect light to multiple targets
+
+Multiple targets examples:
+- outside light up several (*normally*) shaded seating areas.
+- fill up shaded areas of a room with plants.
+- highlight paintings or room features.
+- light up several books on shelves. (*dependant upon reflector count*)
+-- collections by author
+-- series
+-- colour palette. ( The home automation system holds a model of the room. The model of the room holds a model of a bookshelf, complete with books. The model books contain the colour information for the spine of the book. The system can check where the items in the room actually are (using Machine Learning, Vision, Physical tag scanning, Light level sensors, etc.). E.g. A red(ish) wash, to complement the lighting, can be obtained by getting the system to reflect light onto all the books with mostly red spines (*dependant upon reflector count*). )
+
+
+
+
+# ORIGINALY FORKED FROM: The Open Sun Harvesting Project
 
 The goal of [the Open Sun Harvesting Project](https://www.cerebralmeltdown.com/open-sun-harvesting-project) is to make advanced DIY sun tracking and heliostat projects more accessible to the general public. Overall, it has been a great success. The programs, electronics, and designs found on this page have successfully been used in both hobbyist and commercial installations located around the world.
 
