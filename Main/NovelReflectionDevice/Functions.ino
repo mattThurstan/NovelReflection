@@ -172,51 +172,52 @@ void ManualControlThroughSerial(){
   float newAlt,newAz, newTargetAlt, newTargetAz;
     
   //if ((digitalRead(PinToMoveAltInPositiveDir)!=HIGH)&&(digitalRead(PinToMoveAltInNegativeDir)!=HIGH)
-   //&&(digitalRead(PinToMoveAzInPositiveDir)!=HIGH)&&(digitalRead(PinToMoveAzInNegativeDir)!=HIGH)){
-   int machineNumberInput;
-   if (numberOfMachines>1){
+  //&&(digitalRead(PinToMoveAzInPositiveDir)!=HIGH)&&(digitalRead(PinToMoveAzInNegativeDir)!=HIGH)){
+  int machineNumberInput;
+  if (numberOfMachines>1) {
    Serial.println("Manual Mode Active:");
    Serial.println("Type Machine Number:");   
    machineNumberInput = (int)getFloatFromSerialMonitor();  
    Serial.println(machineNumberInput);
-   }else{machineNumberInput=0;}
+  } 
+  else { machineNumberInput=0; }
    
-   if (float(pgm_read_float(&MachineSettings[machineNumber][1]))==1 || digitalRead(HeliostatToSun)==HIGH){//MANUAL CONTROL OF SUN TRACKER
-   Serial.println("Machine's Current Altitude:");   
-   Serial.println(MachinesPrevAlt[machineNumberInput],4);      
-   Serial.println("Machine's Current Azimuth:");      
-   Serial.println(MachinesPrevAz[machineNumberInput],4);      
-   Serial.println("Input Altitude:"); 
-   newAlt = getFloatFromSerialMonitor();
-   Serial.println(newAlt,4);   
-   Serial.println("Input Azimuth:");    
-   newAz = getFloatFromSerialMonitor();
-   Serial.println(newAz,4);  
-
-   Serial.println("Begin Move? Yes=1, No=0");
-   int yesOrNo = getFloatFromSerialMonitor(); 
-   Serial.println(yesOrNo); 
-   if (yesOrNo==1){SunsAltitude=newAlt; SunsAzimuth=newAz;}
-   }//END MANUAL CONTROL OF SUN TRACKER
-   else{//Manual Control Of Heliostat Targets
-   Serial.println("Target's Current Alt:");   
-   Serial.println(MachineTargetAlt[machineNumberInput],4);      
-   Serial.println("Target's Current Az:");      
-   Serial.println(MachineTargetAz[machineNumberInput],4);      
-   Serial.println("Input Target's New Alt:"); 
-   newTargetAlt = getFloatFromSerialMonitor();
-   Serial.println(newTargetAlt,4);   
-   Serial.println("Input Target's New Az:");    
-   newTargetAz = getFloatFromSerialMonitor();
-   Serial.println(newTargetAz,4);   
-   
-   Serial.println("Begin Move? Yes=1, No=0");
-   int yesOrNo = getFloatFromSerialMonitor(); 
-   Serial.println(yesOrNo); 
-   if (yesOrNo==1){MachineTargetAlt[machineNumberInput] = newTargetAlt; MachineTargetAz[machineNumberInput] = newTargetAz; targetsUsed = targetsUsed+1;}
-   }//END MANUAL CONTROL OF HELIOSTAT TARGETS
-   
-   //} 
+  if (float(pgm_read_float(&MachineSettings[machineNumber][1]))==1 || digitalRead(HeliostatToSun)==HIGH) { //MANUAL CONTROL OF SUN TRACKER
+     Serial.println("Machine's Current Altitude:");   
+     Serial.println(MachinesPrevAlt[machineNumberInput],4);      
+     Serial.println("Machine's Current Azimuth:");      
+     Serial.println(MachinesPrevAz[machineNumberInput],4);      
+     Serial.println("Input Altitude:"); 
+     newAlt = getFloatFromSerialMonitor();
+     Serial.println(newAlt,4);   
+     Serial.println("Input Azimuth:");    
+     newAz = getFloatFromSerialMonitor();
+     Serial.println(newAz,4);  
+    
+     Serial.println("Begin Move? Yes=1, No=0");
+     int yesOrNo = getFloatFromSerialMonitor(); 
+     Serial.println(yesOrNo); 
+     if (yesOrNo==1){SunsAltitude=newAlt; SunsAzimuth=newAz;}
+  }//END MANUAL CONTROL OF SUN TRACKER
+  else {//Manual Control Of Heliostat Targets
+    Serial.println("Target's Current Alt:");   
+    Serial.println(MachineTargetAlt[machineNumberInput],4);      
+    Serial.println("Target's Current Az:");      
+    Serial.println(MachineTargetAz[machineNumberInput],4);      
+    Serial.println("Input Target's New Alt:"); 
+    newTargetAlt = getFloatFromSerialMonitor();
+    Serial.println(newTargetAlt,4);   
+    Serial.println("Input Target's New Az:");    
+    newTargetAz = getFloatFromSerialMonitor();
+    Serial.println(newTargetAz,4);   
+     
+    Serial.println("Begin Move? Yes=1, No=0");
+    int yesOrNo = getFloatFromSerialMonitor(); 
+    Serial.println(yesOrNo); 
+    if (yesOrNo==1){MachineTargetAlt[machineNumberInput] = newTargetAlt; MachineTargetAz[machineNumberInput] = newTargetAz; targetsUsed = targetsUsed+1;}
+  }//END MANUAL CONTROL OF HELIOSTAT TARGETS
+  
+  //} 
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
